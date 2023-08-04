@@ -34,7 +34,7 @@ app.get('/sayHello', (request, response) => {
 app.get('/weather', handleWeather);
 
 function errorHandler (error, response) {
-  response.status(500).send('Something went wrong.');
+  response.status(500).send(`There is an error finding weather for the searched city: ${error.message}`);
 }
 
 function handleWeather (request, response) {
@@ -44,7 +44,7 @@ function handleWeather (request, response) {
   let lon = request.query.lon;
   console.log(lat, lon);
 
-  let dataFromJSON = data.find(forecast => forecast.lat.toLowerCase() === lat.toLowerCase() && forecast.lon.toLowerCase() === lon.toLowerCase());
+  let dataFromJSON = data.find((forecast) => forecast.lat === lat && forecast.lon === lon);
   console.log('data: ', dataFromJSON);
 
   try {
@@ -73,6 +73,7 @@ class Forecast {
 // Errors
 app.use((error, request, response, next) => {
   response.status(500).send(error.message);
+  next();
 });
 
 
