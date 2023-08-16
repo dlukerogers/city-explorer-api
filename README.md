@@ -1,7 +1,7 @@
 # City Explorer API
 
 **Author**: Luke Rogers
-**Version**: 2.0.0
+**Version**: 2.1.0
 
 ## Overview
 
@@ -87,7 +87,18 @@ Finish time: 7:15 pm
 
 Actual time needed to complete: 1 hour 3 minutes
 
+Name of feature: Refactor
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 1:24pm
+
+Finish time: 
+
+Actual time needed to complete: 
+
 ## Web request-response cycle
 
 ![Web request-response cycle lab 7](web-request-response-cycle-lab7.png)
 ![Web request-response cycle lab 8](web-request-response-cycle-lab8.png)
+![Web request-response cycle lab 9](web-request-response-cycle-lab9.png)
