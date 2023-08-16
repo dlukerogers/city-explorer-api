@@ -93,9 +93,9 @@ Estimate of time needed to complete: 1 hour
 
 Start time: 1:24pm
 
-Finish time: 
+Finish time: 1:50pm
 
-Actual time needed to complete: 
+Actual time needed to complete: 26 minutes
 
 ## Web request-response cycle
 
