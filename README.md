@@ -1,7 +1,7 @@
 # City Explorer API
 
 **Author**: Luke Rogers
-**Version**: 2.1.0
+**Version**: 2.2.0
 
 ## Overview
 
@@ -20,6 +20,8 @@ Technologies: JavaScript, Express.js, Node.js, ThunderClient
 7/27/2023 [Version 1.0.1] - Set up server repository
 8/3/2023 [Version 1.0.2] - Connected server to front end
 8/9/2023 [Version 2.0.0] - Updated data to Weatherbit API and TMDB API
+8/16/2023 [Version 2.1.0] - Refactored code and added modules
+8/17/2023 [Version 2.2.0] - Added in third party code, fixed bugs, added cache
 
 ## Credit and Collaborations
 
@@ -97,8 +99,19 @@ Finish time: 1:50pm
 
 Actual time needed to complete: 26 minutes
 
+Name of feature: Performance
+
+Estimate of time needed to complete: 3 hours
+
+Start time: 12:56 pm
+
+Finish time: 4:00 pm
+
+Actual time needed to complete: 3 hours 4 minutes
+
 ## Web request-response cycle
 
 ![Web request-response cycle lab 7](web-request-response-cycle-lab7.png)
 ![Web request-response cycle lab 8](web-request-response-cycle-lab8.png)
 ![Web request-response cycle lab 9](web-request-response-cycle-lab9.png)
+![Web request-response cycle lab 10](web-request-response-cycle-lab10.png)

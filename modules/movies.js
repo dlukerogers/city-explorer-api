@@ -2,31 +2,37 @@
 
 const axios = require('axios');
 
-let getMovies = async (req, res) => {
-  console.log(req.query.searchQuery);
-  let location = req.query.location;
-  let params = {
-    api_key: process.env.MOVIE_API_KEY,
-    language: 'en-US',
-    page: '1',
-    query: location
-  };
+let cache = require('./cache.js');
 
-  let movieUrl = 'https://api.themoviedb.org/3/search/movie';
-  let movieData = await axios.get(movieUrl, { params });
+let getMovies = async (location) => {
+  // console.log(req.query.searchQuery);
+  let key = 'movies-' + location;
+  let movieUrl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&language=en-US&page=1&query=${location}`;
 
-  console.log(movieData.data.results);
-
-  try {
-    let movieArray = movieData.data.results.map(movie => new Movie(movie));
-    res.status(200).send(movieArray);
-    console.log(movieArray);
-  } catch (error) {
-    Promise.resolve().then(() => {
-      throw new Error(error.message);
-    }).catch(next);
+  if (cache[key] && (Date.now() - cache[key].timeStamp < 50000)) {
+    console.log('Cache hit');
+  } else {
+    console.log('Cache miss');
+    cache[key] = {};
+    cache[key].timeStamp = Date.now();
+    cache[key].data = axios.get(movieUrl)
+      .then(response => parseMovie(response.data));
   }
+
+  return cache[key].data;
 };
+
+
+function parseMovie (movieData) {
+  try {
+    const movies = movieData.results.map((movie => {
+      return new Movie(movie);
+    }));
+    return Promise.resolve(movies);
+  } catch (error) {
+    return Promise.reject(error);
+  }
+}
 
 class Movie {
   constructor(movie) {
