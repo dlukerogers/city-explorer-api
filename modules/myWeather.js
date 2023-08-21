@@ -2,7 +2,7 @@
 
 const axios = require('axios');
 
-let getWeather = async (req, res) => {
+let getWeather = async (req, res, next) => {
   // console.log(req.query);
   // .lat can be called for anything; what are query parameter is "?city=..."
   let lat = req.query.lat;
