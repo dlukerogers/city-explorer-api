@@ -6,6 +6,7 @@ const cors = require('cors');
 
 const weather = require('./modules/weather.js');
 const movie = require('./modules/movies');
+const yelp = require('./modules/yelp.js');
 const app = express();
 app.use(cors());
 
@@ -13,6 +14,8 @@ const PORT = process.env.PORT || 3002;
 
 app.get('/weather', weatherHandler);
 app.get('/movies', movieHandler);
+app.get('/yelp', yelp);
+
 
 function weatherHandler(request, response) {
   const { lat, lon } = request.query;
@@ -35,5 +38,4 @@ function movieHandler(request, response) {
 }
 
 
-
-app.listen(process.env.PORT, () => console.log(`Server up on ${PORT}`));
+app.listen(PORT, () => console.log(`Server up on ${PORT}`));
